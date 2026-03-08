@@ -295,7 +295,7 @@ This enables integration with:
 ### Endpoint
 
 ```
-POST /predict
+POST /api/check_query
 ```
 
 ### Example Request
@@ -328,7 +328,7 @@ Example:
 ```python
 import requests
 
-url = "http://localhost:5000/predict"
+url = "http://localhost:5000/api/check_query"
 
 query = {
     "query": "SELECT * FROM users WHERE id = 1 OR 1=1"
