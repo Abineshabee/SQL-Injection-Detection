@@ -1,0 +1,204 @@
+<svg width="680" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <style>
+      @keyframes scan {
+        0%   { transform: translateY(0px); opacity: 0.6; }
+        100% { transform: translateY(420px); opacity: 0; }
+      }
+      @keyframes pulse-red {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0.35; }
+      }
+      @keyframes pulse-green {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0.55; }
+      }
+      @keyframes blink {
+        0%,49%  { opacity: 1; }
+        50%,99% { opacity: 0; }
+      }
+      @keyframes fill-safe {
+        from { width: 0; }
+        to   { width: 72px; }
+      }
+      @keyframes fill-inj {
+        from { width: 0; }
+        to   { width: 259px; }
+      }
+      @keyframes slide-in {
+        from { opacity: 0; transform: translateX(-6px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes badge-pulse {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0.5; }
+      }
+
+      .scan-line { animation: scan 3s linear infinite; }
+      .cursor    { animation: blink 1s step-end infinite; }
+      .inj-token { animation: pulse-red 1.2s ease-in-out infinite; }
+      .bar-safe  { animation: fill-safe 1.2s cubic-bezier(.4,0,.2,1) 0.6s both; }
+      .bar-inj   { animation: fill-inj  1.2s cubic-bezier(.4,0,.2,1) 0.8s both; }
+      .badge-danger { animation: badge-pulse 1.4s ease-in-out infinite; }
+      .pct-inj   { animation: pulse-red 1.2s ease-in-out infinite; }
+      .pct-safe  { animation: pulse-green 2s ease-in-out infinite; }
+
+      .tk1  { animation: slide-in 0.4s ease 0.05s both; }
+      .tk2  { animation: slide-in 0.4s ease 0.10s both; }
+      .tk3  { animation: slide-in 0.4s ease 0.15s both; }
+      .tk4  { animation: slide-in 0.4s ease 0.20s both; }
+      .tk5  { animation: slide-in 0.4s ease 0.25s both; }
+      .tk6  { animation: slide-in 0.4s ease 0.30s both; }
+      .tk7  { animation: slide-in 0.4s ease 0.35s both; }
+      .tk8  { animation: slide-in 0.4s ease 0.40s both; }
+      .tk9  { animation: slide-in 0.4s ease 0.50s both; }
+      .tk10 { animation: slide-in 0.4s ease 0.58s both; }
+
+      .fade1 { animation: fade-up 0.5s ease 0.9s both; }
+      .fade2 { animation: fade-up 0.5s ease 1.0s both; }
+      .fade3 { animation: fade-up 0.5s ease 1.1s both; }
+      .fade4 { animation: fade-up 0.5s ease 1.4s both; }
+    </style>
+
+    <clipPath id="card-clip">
+      <rect x="0" y="0" width="680" height="420" rx="14"></rect>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="680" height="420" rx="14" fill="#0d0d0f"></rect>
+
+  <!-- Scan line -->
+  <rect class="scan-line" x="0" y="0" width="680" height="1.5" fill="#63db85" opacity="0.18" clip-path="url(#card-clip)"></rect>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="140" x2="680" y2="140" stroke="#ffffff" stroke-width="0.5" opacity="0.04"></line>
+  <line x1="0" y1="240" x2="680" y2="240" stroke="#ffffff" stroke-width="0.5" opacity="0.04"></line>
+  <line x1="0" y1="340" x2="680" y2="340" stroke="#ffffff" stroke-width="0.5" opacity="0.04"></line>
+
+  <!-- Title -->
+  <text x="48" y="62" font-family="'Arial', sans-serif" font-size="26" font-weight="700" fill="#f0ede8" letter-spacing="-0.3">SQL Injection Detection</text>
+  <text x="48" y="82" font-family="'Arial', sans-serif" font-size="11" fill="#50a080" letter-spacing="2">ML-POWERED · NLP VECTORIZATION · REST API</text>
+
+  <!-- Divider -->
+  <line x1="48" y1="96" x2="632" y2="96" stroke="#ffffff" stroke-width="0.5" opacity="0.1"></line>
+
+  <!-- Query line -->
+  <text x="48" y="126" font-size="14.5" fill="#7ecfff">SELECT</text>
+  <text x="112" y="126" font-size="14.5" fill="#a9b8cc"> * </text>
+  <text x="130" y="126" font-size="14.5" fill="#7ecfff">FROM</text>
+  <text x="175" y="126" font-size="14.5" fill="#e8e6e0"> users </text>
+  <text x="226" y="126" font-size="14.5" fill="#7ecfff">WHERE</text>
+  <text x="281" y="126" font-size="14.5" fill="#e8e6e0"> username=</text>
+  <text x="360" y="126" font-size="14.5" fill="#f7c675">'admin'</text>
+  <text x="425" y="126" font-size="14.5" fill="#a99cdb"> OR </text>
+  <!-- Injection highlight -->
+  <rect x="460" y="110" width="84" height="20" rx="3" fill="#2e1010" opacity="0.9"></rect>
+  <rect x="460" y="128" width="84" height="1.5" rx="0.5" fill="#f07070" opacity="0.7"></rect>
+  <text x="463" y="126" font-size="14.5" fill="#f07070">'1'='1'</text>
+  <!-- Cursor -->
+  <rect class="cursor" x="548" y="112" width="2" height="14" fill="#7ecfff"></rect>
+
+  <!-- Divider -->
+  <line x1="48" y1="148" x2="632" y2="148" stroke="#ffffff" stroke-width="0.5" opacity="0.08"></line>
+
+  <!-- Token chips row -->
+  <!-- SELECT -->
+  <g class="tk1">
+    <rect x="48" y="162" width="62" height="24" rx="6" fill="#163040" stroke="#2a5a70" stroke-width="0.5"></rect>
+    <text x="79" y="178" font-size="11" fill="#7ecfff" text-anchor="middle" font-weight="500" letter-spacing="0.5">SELECT</text>
+  </g>
+  <!-- * -->
+  <g class="tk2">
+    <rect x="118" y="162" width="28" height="24" rx="6" fill="#1e1b2a" stroke="#3a3060" stroke-width="0.5"></rect>
+    <text x="132" y="178" font-size="11" fill="#a99cdb" text-anchor="middle" font-weight="500">*</text>
+  </g>
+  <!-- FROM -->
+  <g class="tk3">
+    <rect x="154" y="162" width="55" height="24" rx="6" fill="#163040" stroke="#2a5a70" stroke-width="0.5"></rect>
+    <text x="181" y="178" font-size="11" fill="#7ecfff" text-anchor="middle" font-weight="500" letter-spacing="0.5">FROM</text>
+  </g>
+  <!-- users -->
+  <g class="tk4">
+    <rect x="217" y="162" width="52" height="24" rx="6" fill="#1e1e26" stroke="#3a3a48" stroke-width="0.5"></rect>
+    <text x="243" y="178" font-size="11" fill="#d4d0c8" text-anchor="middle" font-weight="500">users</text>
+  </g>
+  <!-- WHERE -->
+  <g class="tk5">
+    <rect x="277" y="162" width="60" height="24" rx="6" fill="#163040" stroke="#2a5a70" stroke-width="0.5"></rect>
+    <text x="307" y="178" font-size="11" fill="#7ecfff" text-anchor="middle" font-weight="500" letter-spacing="0.5">WHERE</text>
+  </g>
+  <!-- username -->
+  <g class="tk6">
+    <rect x="345" y="162" width="76" height="24" rx="6" fill="#1e1e26" stroke="#3a3a48" stroke-width="0.5"></rect>
+    <text x="383" y="178" font-size="11" fill="#d4d0c8" text-anchor="middle" font-weight="500">username</text>
+  </g>
+  <!-- = -->
+  <g class="tk7">
+    <rect x="429" y="162" width="26" height="24" rx="6" fill="#1e1b2a" stroke="#3a3060" stroke-width="0.5"></rect>
+    <text x="442" y="178" font-size="11" fill="#a99cdb" text-anchor="middle" font-weight="500">=</text>
+  </g>
+  <!-- 'admin' -->
+  <g class="tk8">
+    <rect x="463" y="162" width="62" height="24" rx="6" fill="#2a2010" stroke="#5a4820" stroke-width="0.5"></rect>
+    <text x="494" y="178" font-size="11" fill="#f7c675" text-anchor="middle" font-weight="500">'admin'</text>
+  </g>
+  <!-- OR — danger -->
+  <g class="tk9 inj-token">
+    <rect x="533" y="162" width="32" height="24" rx="6" fill="#2e1010" stroke="#8b3030" stroke-width="1"></rect>
+    <text x="549" y="178" font-size="11" fill="#f07070" text-anchor="middle" font-weight="500">OR</text>
+  </g>
+  <!-- '1'='1' — danger -->
+  <g class="tk10 inj-token">
+    <rect x="573" y="162" width="60" height="24" rx="6" fill="#2e1010" stroke="#8b3030" stroke-width="1"></rect>
+    <text x="603" y="178" font-size="11" fill="#f07070" text-anchor="middle" font-weight="500">'1'='1'</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="48" y1="206" x2="632" y2="206" stroke="#ffffff" stroke-width="0.5" opacity="0.08"></line>
+
+  <!-- Probability bars -->
+  <!-- Safe -->
+  <g class="fade1">
+    <text x="48" y="232" font-family="'Arial',sans-serif" font-size="11" fill="#555" letter-spacing="1">SAFE QUERY</text>
+    <rect x="168" y="220" width="350" height="6" rx="3" fill="#1a1a1e"></rect>
+    <rect class="bar-safe" x="168" y="220" width="72" height="6" rx="3" fill="#3d9a55"></rect>
+    <text class="pct-safe" x="600" y="225" font-size="12" fill="#5bcf7a" text-anchor="end" font-weight="500">12.45%</text>
+  </g>
+
+  <!-- Injection -->
+  <g class="fade2">
+    <text x="48" y="262" font-family="'Arial',sans-serif" font-size="11" fill="#555" letter-spacing="1">INJECTION</text>
+    <rect x="168" y="250" width="350" height="6" rx="3" fill="#1a1a1e"></rect>
+    <rect class="bar-inj" x="168" y="250" width="72" height="6" rx="3" fill="#c0392b"></rect>
+    <text class="pct-inj" x="600" y="260" font-size="12" fill="#f07070" text-anchor="end" font-weight="500">87.55%</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="48" y1="282" x2="632" y2="282" stroke="#ffffff" stroke-width="0.5" opacity="0.08"></line>
+
+  <!-- Verdict badges -->
+  <g class="fade3 badge-danger">
+    <rect x="48" y="298" width="148" height="28" rx="6" fill="#2e1010" stroke="#8b3030" stroke-width="0.8"></rect>
+    <text x="122" y="316" font-family="'Arial',sans-serif" font-size="11" fill="#f07070" text-anchor="middle" font-weight="600" letter-spacing="1">THREAT DETECTED</text>
+  </g>
+
+  <g class="fade4">
+    <rect x="208" y="298" width="146" height="28" rx="6" fill="#161620" stroke="#30304a" stroke-width="0.5"></rect>
+    <text x="281" y="316" font-family="'Arial',sans-serif" font-size="10" fill="#7a7a90" text-anchor="middle" letter-spacing="0.5">TF-IDF · Scikit-learn</text>
+  </g>
+
+  <!-- Model prediction label -->
+  <g class="fade4">
+    <text x="48" y="368" font-family="'Arial',sans-serif" font-size="11" fill="#333" letter-spacing="0.5">Model prediction</text>
+    <text x="48" y="386" font-size="13" fill="#f07070" font-weight="600">1  —  SQL Injection Attack</text>
+  </g>
+
+  <!-- GitHub handle -->
+  <text x="632" y="386" font-family="'Arial',sans-serif" font-size="11" fill="#2a4a3a" text-anchor="end">github.com/Abineshabee</text>
+
+</svg>
