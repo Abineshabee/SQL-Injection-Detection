@@ -6,7 +6,7 @@
 A **Machine Learning based SQL Injection Detection System** built using **Python, Flask, and Scikit-learn** that detects whether a given SQL query contains a **SQL Injection attack**.
 
 <p align="center">
-  <img src="Examples/SQL.svg" width="700">
+  <img src="Examples/SQL.svg" width="750">
 </p>
 
 The project provides:
